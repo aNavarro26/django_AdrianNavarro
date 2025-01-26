@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Professors{% endblock %}
+
+{% block content %}
+<h1>INFORMACIÓ PROFESSORAT TIC BARCELONA</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Primer Cognom</th>
+            <th>Segon Cognom</th>
+            <th>Correu</th>
+            <th>Rol</th>
+            <th>Curs</th>
+            <th>Es Tutor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.id }}</td>
+                <td>{{ teacher.nom }}</td>
+                <td>{{ teacher.cognom1 }}</td>
+                <td>{{ teacher.cognom2 }}</td>
+                <td>{{ teacher.correu }}</td>
+                <td>{{ teacher.rol }}</td>
+                <td>{{ teacher.curs }}</td>
+                <td>{% if teacher.tutor %}Sí{% else %}No{% endif %}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
