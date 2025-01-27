@@ -1,0 +1,27 @@
+{% extends 'header/header.html' %}
+
+{% block content %}
+  <h1>INFORMACIÓ ALUMNAT TIC BARCELONA</h1>
+  <h2>PROFESSORAT</h2>
+  <ul>
+    {% for teacher in teachers %}
+      <li>
+        ID: {{ teacher.ID }} - NOM: {{ teacher.name }} - ROL: {{ teacher.ROL }}
+
+        <a href="/centre/teachers" {{ teacher.id }}>INFO</a>
+        {% comment %} <a href="{% url 'teacher_detail' teacher.name %}">{{ teacher.name }} {{ teacher.surname1 }}</a> {% endcomment %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>ALUMNAT</h2>
+  <ul>
+    {% for student in students %}
+      <li>
+        ID: {{ student.id }} - NOM: {{ student.name }} - ROL: {{ student.role }}
+        <a href="/centre/students" {{ student.id }}>INFO</a>
+        {% comment %} <a href="{% url 'student_detail' student.name %}">{{ student.name }} {{ student.surname1 }}</a> {% endcomment %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

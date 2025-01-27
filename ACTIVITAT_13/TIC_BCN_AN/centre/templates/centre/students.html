@@ -1,31 +1,33 @@
 {% extends 'base.html' %}
 
-{% block title %}Estudiants{% endblock %}
+{% block title %}
+  Estudiants
+{% endblock %}
 
 {% block content %}
-<h1>INFORMACIÓ ALUMNAT TIC BARCELONA</h1>
-<table>
+  <h1>INFORMACIÓ ALUMNAT TIC BARCELONA</h1>
+  <table>
     <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Primer Cognom</th>
-            <th>Segundo Cognom</th>
-            <th>Correu</th>
-            <th>Curs</th>
-            <th>Móduls Matriculats</th>
-        </tr>
+      <tr>
+        <th>Nom</th>
+        <th>Primer Cognom</th>
+        <th>Segundo Cognom</th>
+        <th>Correu</th>
+        <th>Curs</th>
+        <th>Móduls Matriculats</th>
+      </tr>
     </thead>
     <tbody>
-        {% for student in students %}
-            <tr>
-                <td>{{ student.nom }}</td>
-                <td>{{ student.cognom1 }}</td>
-                <td>{{ student.cognom2 }}</td>
-                <td>{{ student.correu }}</td>
-                <td>{{ student.curs }}</td>
-                <td>{{ student.moduls }}</td>
-            </tr>
-        {% endfor %}
+      {% for student in students %}
+        <tr>
+          <td>{{ student.nom }}</td>
+          <td>{{ student.cognom1 }}</td>
+          <td>{{ student.cognom2 }}</td>
+          <td>{{ student.correu }}</td>
+          <td>{{ student.curs }}</td>
+          <td>{{ student.moduls }}</td>
+        </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
 {% endblock %}

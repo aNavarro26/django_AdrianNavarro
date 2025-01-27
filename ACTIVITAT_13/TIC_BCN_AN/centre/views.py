@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def students(request):
+def students(request, student_id=None):
     students = [
         {
             "id": 1,
@@ -33,10 +33,18 @@ def students(request):
             "moduls": "M06, M07, M09",
         },
     ]
+    if student_id:
+        studentSelected = None
+        for student in students:
+            if student["id"] == student_id:
+                studentSelected = student
+                break
+        return render(request, "centre/students.html", {"students": studentSelected})
+
     return render(request, "centre/students.html", {"students": students})
 
 
-def teachers(request):
+def teachers(request, teacher_id=None):
     teachers = [
         {
             "id": 1,
@@ -69,4 +77,29 @@ def teachers(request):
             "tutor": False,
         },
     ]
+
+    if teacher_id:
+        teacherSelected = None
+        for teacher in teachers:
+            if teacher["id"] == teacher_id:
+                teacherSelected = teacher
+                break
+        return render(request, "centre/teachers.html", {"teachers": teacherSelected})
+
     return render(request, "centre/teachers.html", {"teachers": teachers})
+
+
+def index(request):
+    students = [
+        {"id": 1, "nom": "Adrián", "rol": "student"},
+        {"id": 2, "nom": "Achraf", "rol": "student"},
+        {"id": 3, "nom": "Xavi", "rol": "student"},
+    ]
+
+    teachers = [
+        {"id": 1, "nom": "Roger", "rol": "teacher"},
+        {"id": 2, "nom": "Josep Oriol", "rol": "teacher"},
+        {"id": 3, "nom": "Juanma", "rol": "teacher"},
+    ]
+
+    return render(request, "index.html", {"teachers": teachers, "students": students})
