@@ -11,3 +11,6 @@
 ![Captura Projecte](/ACTIVITAT_13/src/projecte_url.png)
 #### Aplicació
 ![Captura Aplicacio](/ACTIVITAT_13/src/aplicacio_url.png)
+
+### Estructura Projecte
+![Captura Estructura](/ACTIVITAT_13/src/estructura.png)
