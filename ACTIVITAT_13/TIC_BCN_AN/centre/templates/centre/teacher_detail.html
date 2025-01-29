@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Detall Professor
+{% endblock %}
+
+{% block content %}
+  <h1>Detalls del Professor</h1>
+  <p>Nom: {{ teacher.nom }}</p>
+  <p>Primer Cognom: {{ teacher.cognom1 }}</p>
+  <p>Segon Cognom: {{ teacher.cognom2 }}</p>
+  <p>Correu: {{ teacher.correu }}</p>
+  <p>Rol: {{ teacher.rol }}</p>
+  <p>Curs: {{ teacher.curs }}</p>
+  <p>
+    Tutor:{% if teacher.tutor %}
+      Sí
+    {% else %}
+      No
+    {% endif %}
+  </p>
+  <a href="{% url 'teachers' %}">Tornar</a>
+{% endblock %}

@@ -89,6 +89,92 @@ def teachers(request, teacher_id=None):
     return render(request, "centre/teachers.html", {"teachers": teachers})
 
 
+def student_detail(request, student_id):
+    # Lista de estudiantes
+    students = [
+        {
+            "id": 1,
+            "nom": "Adrián",
+            "cognom1": "Navarro",
+            "cognom2": "Perez",
+            "correu": "adrian@example.com",
+            "curs": "DAW2A",
+            "moduls": "M06, M07, M08",
+        },
+        {
+            "id": 2,
+            "nom": "Achraf",
+            "cognom1": "Chakir",
+            "cognom2": "",
+            "correu": "achraf@example.com",
+            "curs": "DAW2A",
+            "moduls": "M06, M07, M09",
+        },
+        {
+            "id": 3,
+            "nom": "Xavi",
+            "cognom1": "Porras",
+            "cognom2": "del Pino",
+            "correu": "xavi@example.com",
+            "curs": "DAW2A",
+            "moduls": "M06, M07, M09",
+        },
+    ]
+
+    # Buscar el estudiante por ID
+    student = None
+    for s in students:
+        if s["id"] == student_id:
+            student = s
+            break
+
+    # Renderizar la plantilla
+    return render(request, "centre/student_detail.html", {"student": student})
+
+
+def teacher_detail(request, teacher_id):
+    teachers = [
+        {
+            "id": 1,
+            "nom": "Roger",
+            "cognom1": "Sobrino",
+            "cognom2": "Gil",
+            "correu": "roger@example.com",
+            "rol": "teacher",
+            "curs": "DAM2B, DAW2A",
+            "tutor": True,
+        },
+        {
+            "id": 2,
+            "nom": "Josep Oriol",
+            "cognom1": "Roca",
+            "cognom2": "Fabra",
+            "correu": "josep@example.com",
+            "rol": "teacher",
+            "curs": "DAW2B, DAW2A, DAW1A",
+            "tutor": False,
+        },
+        {
+            "id": 3,
+            "nom": "Juanma",
+            "cognom1": "Sanchez",
+            "cognom2": "Biel",
+            "correu": "juanma@example.com",
+            "rol": "teacher",
+            "curs": "DAW2B, DAW2A",
+            "tutor": False,
+        },
+    ]
+
+    teacher = None
+    for t in teachers:
+        if t["id"] == teacher_id:
+            teacher = t
+            break
+
+    return render(request, "centre/teacher_detail.html", {"teacher": teacher})
+
+
 def index(request):
     students = [
         {"id": 1, "nom": "Adrián", "rol": "student"},

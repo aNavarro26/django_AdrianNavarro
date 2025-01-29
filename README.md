@@ -14,3 +14,7 @@
 
 ### Estructura Projecte
 ![Captura Estructura](/ACTIVITAT_13/src/estructura.png)
+
+### Enllaç Video Activitat 2
+https://drive.google.com/file/d/1rg4axzg6xsE4tY2AMVn07ZE33suESJjJ/view?usp=sharing
+
