@@ -90,7 +90,6 @@ def teachers(request, teacher_id=None):
 
 
 def student_detail(request, student_id):
-    # Lista de estudiantes
     students = [
         {
             "id": 1,
@@ -121,14 +120,12 @@ def student_detail(request, student_id):
         },
     ]
 
-    # Buscar el estudiante por ID
     student = None
     for s in students:
         if s["id"] == student_id:
             student = s
             break
 
-    # Renderizar la plantilla
     return render(request, "centre/student_detail.html", {"student": student})
 
 
