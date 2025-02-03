@@ -23,4 +23,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("admin/", admin.site.urls),
     path("centre/", include("centre.urls")),
+    path("pasApas/", include("pasApas.urls")),
 ]
