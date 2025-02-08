@@ -24,4 +24,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("centre/", include("centre.urls")),
     path("pasApas/", include("pasApas.urls")),
+    path("login/", include("login.urls")),
 ]
