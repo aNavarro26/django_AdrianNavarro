@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import LoginForm
 
 
 # Create your views here.
@@ -7,4 +8,6 @@ def home(request):
 
 
 def login_view(request):
-    return render(request, "login/login.html")
+    form = LoginForm()
+
+    return render(request, "login/login.html", {"form": form})
