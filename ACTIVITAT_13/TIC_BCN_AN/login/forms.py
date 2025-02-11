@@ -5,7 +5,7 @@ from .models import User
 class LoginForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["username", "password"]
+        fields = ["email", "password"]
         widgets = {
             "password": forms.PasswordInput(attrs={"placeholder": "Contrasenya"})
         }
