@@ -6,12 +6,15 @@
     <title>Pàgina d'inici</title>
   </head>
   <body>
-    <h1>Benvingut{% if request.session.user_id %}, usuari {% endif %}</h1>
+    {% comment %} <h1>Benvingut{% if request.session.user_id %}, usuari {% endif %}</h1> {% endcomment %}
+    <h1>Benvingut, {{ user.username }}!</h1>
+    <p>Has iniciat sessió correctament.</p>
+    <a href="{% url 'logout' %}"><button>Tancar Sessió</button></a>
 
-    {% if request.session.user_id %}
+    {% comment %} {% if request.session.user_id %}
       <a href="{% url 'logout' %}">Tancar sessió</a>
     {% else %}
       <a href="{% url 'login' %}">Iniciar sessió</a>
-    {% endif %}
+    {% endif %} {% endcomment %}
   </body>
 </html>

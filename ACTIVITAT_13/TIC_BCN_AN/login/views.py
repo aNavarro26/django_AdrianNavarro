@@ -4,8 +4,13 @@ from .models import User
 
 
 # Create your views here.
-def home(request):
-    return render(request, "login/home.html")
+def home_view(request):
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return redirect("login")
+
+    user = User.objects.get(id=user_id)
+    return render(request, "login/home.html", {"user": user})
 
 
 def login_view(request):
