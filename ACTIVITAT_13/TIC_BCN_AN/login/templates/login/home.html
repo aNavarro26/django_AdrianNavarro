@@ -3,10 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inici</title>
+    <title>Pàgina d'inici</title>
   </head>
   <body>
-    <h1>Pàgina Inici</h1>
-    <a href="{% url 'login' %}">Iniciar sessió</a>
+    <h1>Benvingut{% if request.session.user_id %}, usuari {% endif %}</h1>
+
+    {% if request.session.user_id %}
+      <a href="{% url 'logout' %}">Tancar sessió</a>
+    {% else %}
+      <a href="{% url 'login' %}">Iniciar sessió</a>
+    {% endif %}
   </body>
 </html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import LoginForm
 from .models import User
 
@@ -9,6 +9,9 @@ def home(request):
 
 
 def login_view(request):
+    if request.session.get("user_id"):
+        return redirect("home")
+
     form = LoginForm()
     error_message = ""
 
@@ -19,12 +22,25 @@ def login_view(request):
             password = form.cleaned_data["password"]
 
             try:
+                """
+                Sense sessió
                 user = User.objects.get(email=email, password=password)
                 return render(request, "login/home.html", {"user": user})
-
+                """
+                user = User.objects.get(email=email)
+                if user.password == password:
+                    request.session["user_id"] = user.id
+                    return redirect("home")
+                else:
+                    error_message = "Credencials incorrectes"
             except User.DoesNotExist:
                 error_message = "Credencials incorrectes."
 
     return render(
         request, "login/login.html", {"form": form, "error_message": error_message}
     )
+
+
+def logout_view(request):
+    request.session.flush()
+    return redirect("login")
